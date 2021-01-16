@@ -1,10 +1,10 @@
-package com.gugu.demo.kangfuzhongxin.ui.dashboard
+package com.gugu.demo.kangfuzhongxin.ui.patient
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class PatientViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"

@@ -1,4 +1,4 @@
-package com.gugu.demo.kangfuzhongxin.ui.main
+package com.gugu.demo.kangfuzhongxin.ui.chat.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -49,7 +49,8 @@ class PlaceholderFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance(sectionNumber: Int): PlaceholderFragment {
-            return PlaceholderFragment().apply {
+            return PlaceholderFragment()
+                .apply {
                 arguments = Bundle().apply {
                     putInt(ARG_SECTION_NUMBER, sectionNumber)
                 }

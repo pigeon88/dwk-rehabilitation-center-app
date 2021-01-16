@@ -1,5 +1,6 @@
-package com.gugu.demo.kangfuzhongxin
+package com.gugu.demo.kangfuzhongxin.ui.chat
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -8,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import com.gugu.demo.kangfuzhongxin.R
 import com.gugu.demo.kangfuzhongxin.dummy.DummyContent
 
 /**
@@ -25,18 +28,26 @@ class ItemFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_item_list, container, false)
 
         // Set the adapter
         if (view is RecyclerView) {
+            var myItemRecyclerViewAdapter = MyItemRecyclerViewAdapter(DummyContent.ITEMS)
+            myItemRecyclerViewAdapter.setItemClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
+                startActivity(Intent(activity, ChatActivity::class.java))
+            })
+
             with(view) {
                 layoutManager = when {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyItemRecyclerViewAdapter(DummyContent.ITEMS)
+                adapter =
+                    myItemRecyclerViewAdapter
             }
         }
         return view
@@ -50,10 +61,10 @@ class ItemFragment : Fragment() {
         // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
-                ItemFragment().apply {
-                    arguments = Bundle().apply {
-                        putInt(ARG_COLUMN_COUNT, columnCount)
-                    }
+            ItemFragment().apply {
+                arguments = Bundle().apply {
+                    putInt(ARG_COLUMN_COUNT, columnCount)
                 }
+            }
     }
 }
