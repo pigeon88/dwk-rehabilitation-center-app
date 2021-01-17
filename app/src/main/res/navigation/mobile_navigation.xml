@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.gugu.demo.kangfuzhongxin.ui.chat.ItemFragment"
+        android:name="com.gugu.demo.kangfuzhongxin.ui.chat.ChatFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_chat" />
 
     <fragment
         android:id="@+id/navigation_dashboard"

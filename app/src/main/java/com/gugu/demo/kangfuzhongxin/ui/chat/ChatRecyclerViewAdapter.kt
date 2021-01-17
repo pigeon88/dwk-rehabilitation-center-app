@@ -15,15 +15,15 @@ import com.gugu.demo.kangfuzhongxin.dummy.DummyContent.DummyItem
  * [RecyclerView.Adapter] that can display a [DummyItem].
  * TODO: Replace the implementation with code for your data type.
  */
-class MyItemRecyclerViewAdapter(
+class ChatRecyclerViewAdapter(
         private val values: List<DummyItem>)
-    : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
+    : RecyclerView.Adapter<ChatRecyclerViewAdapter.ViewHolder>() {
 
     lateinit var listener: AdapterView.OnItemClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.fragment_item, parent, false)
+                .inflate(R.layout.fragment_chat_item, parent, false)
         return ViewHolder(view)
     }
 

@@ -16,7 +16,7 @@ import com.gugu.demo.kangfuzhongxin.dummy.DummyContent
 /**
  * A fragment representing a list of Items.
  */
-class ItemFragment : Fragment() {
+class ChatFragment : Fragment() {
 
     private var columnCount = 1
 
@@ -32,11 +32,11 @@ class ItemFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_item_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_chat, container, false)
 
         // Set the adapter
         if (view is RecyclerView) {
-            var myItemRecyclerViewAdapter = MyItemRecyclerViewAdapter(DummyContent.ITEMS)
+            var myItemRecyclerViewAdapter = ChatRecyclerViewAdapter(DummyContent.ITEMS)
             myItemRecyclerViewAdapter.setItemClickListener(AdapterView.OnItemClickListener { parent, view, position, id ->
                 startActivity(Intent(activity, ChatActivity::class.java))
             })
@@ -61,7 +61,7 @@ class ItemFragment : Fragment() {
         // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
-            ItemFragment().apply {
+            ChatFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }
